@@ -53,15 +53,11 @@ public class Player : MonoBehaviour
             weaponOnMe.gameObject.SetActive(true);
             fireShoot = Input.GetButtonDown("Fire1");
             //animComponent.SetBool("Fire" , true);
-
-             
             if (move2D != Vector2.zero)
             {  
                Debug.Log("Cambiar a animShoot");
               animComponent.SetBool ("Walk",false);
               animComponent.SetBool("Fire" , true);
-            
-              
             }  
             else 
             {
@@ -69,9 +65,6 @@ public class Player : MonoBehaviour
                 
             }       
         }
-           
-       
-
     }   
 
     void OnTriggerEnter2D(Collider2D other) 
