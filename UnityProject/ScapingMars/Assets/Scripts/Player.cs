@@ -1,5 +1,4 @@
 ﻿
-using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +34,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         move2D = new Vector2 (Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
-        fireShoot = Input.GetButtonDown("Fire1");
+        
         
         if (move2D != Vector2.zero)
         {
@@ -51,18 +50,23 @@ public class Player : MonoBehaviour
 
         if ( weaponOnGround.activeInHierarchy == false )
         {
-            
-              Debug.Log("Cambiar a animShoot");
+            weaponOnMe.gameObject.SetActive(true);
+            fireShoot = Input.GetButtonDown("Fire1");
+            //animComponent.SetBool("Fire" , true);
+
+             
+            if (move2D != Vector2.zero)
+            {  
+               Debug.Log("Cambiar a animShoot");
               animComponent.SetBool ("Walk",false);
               animComponent.SetBool("Fire" , true);
-            if (rbPlayer.transform.x != rbPlayer.transform.y)
-            {  
-              
+            
               
             }  
             else 
             {
                  animComponent.SetBool("Fire",false);
+                
             }       
         }
            
