@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
         else
         {
             animComponent.SetBool ("Walk",false);
-           
         }
 
         if ( weaponOnGround.activeInHierarchy == false )
@@ -61,12 +60,31 @@ public class Player : MonoBehaviour
             }  
             else 
             {
-                 animComponent.SetBool("Fire",false);
-                
+                 animComponent.SetBool("Fire",false); 
             }       
         }
-    }   
 
+        if(move2D.x > 0)
+        {
+            Debug.Log("PlAYER YENDO A X+");
+        }
+        if(move2D.x < 0)
+        {
+            Debug.Log("PlAYER YENDO A X-");
+        }
+        if(move2D.y < 0)
+        {
+             Debug.Log("PlAYER YENDO A Y-");
+        }
+        if(move2D.y > 0)
+        {
+             Debug.Log("PlAYER YENDO A Y-");
+        }
+
+
+          
+        
+    }   
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.CompareTag("Weapon1"))
